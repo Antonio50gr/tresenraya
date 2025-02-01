@@ -61,15 +61,15 @@ const checkWinner = (boardToCheck) =>{
     const newBoard = [...board];  // Hago copia del tablero actual
     newBoard[index] = turn;       // Establecimiento del turno actual en la posición del tablero 
     setBoard(newBoard);           // Actualizo el estado del tablero con la nueva copia
-
+    //cambio turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X; //cambiar el turno
     setTurn(newTurn);
     //reviso si hay ganador
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
       setWinner(newWinner)
-    }
-  };
+    } //revisar si hay ganador
+  }
 
   return (
     <main className="board">
@@ -95,6 +95,27 @@ const checkWinner = (boardToCheck) =>{
           {TURNS.O}
         </Square>
       </section>
+      {
+        winner !== null && (
+          <section className="winner">
+            <div className="text">
+              <h2>
+                {
+                  winner === false
+                  ? 'Empate'
+                  : 'Ganó' 
+                }
+              </h2>
+              <header className="win">
+                {winner && <Square>{winner}</Square>}
+              </header>
+              <footer>
+                
+              </footer>
+            </div>
+          </section>
+        )
+      }
     </main>
   );
 }
