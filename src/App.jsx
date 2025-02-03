@@ -1,4 +1,5 @@
 import { useState } from "react";
+import confetti from 'canvas-confetti';  // Importa la librería
 
 const TURNS = { //turnos
   X: 'x',
@@ -56,6 +57,18 @@ const checkWinner = (boardToCheck) =>{
     return null //si no hay ganador
 }
 
+const resetGame = () => {
+  setBoard(Array(9).fill(null))
+  setTurn(TURNS.X)
+  setWinner(null)
+}
+
+const checkEndGame = (newBoard) => {
+  return newBoard.every((square) => square !== null);
+};
+
+
+
   const updateBoard = (index) => {
     if(board[index]|| winner)return        // No actualizo posicion si ya tiene algo
     const newBoard = [...board];  // Hago copia del tablero actual
@@ -67,13 +80,17 @@ const checkWinner = (boardToCheck) =>{
     //reviso si hay ganador
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
+      confetti()
       setWinner(newWinner)
-    } //revisar si hay ganador
+    } else if (checkEndGame(newBoard)) { //revisamos tablero y no vemos ganador
+      setWinner(false)
+    }
   }
 
   return (
     <main className="board">
       <h1>Tres en raya</h1>
+      <button onClick={resetGame}>Reset del juego </button>
       <section className="game">
         {board.map((_, index) => {
           return (
@@ -110,7 +127,7 @@ const checkWinner = (boardToCheck) =>{
                 {winner && <Square>{winner}</Square>}
               </header>
               <footer>
-                
+                <button onClick={resetGame}>Empezar de nuevo</button>
               </footer>
             </div>
           </section>

@@ -53,6 +53,7 @@ body {
   cursor: pointer;
 }
 
+
 .board button:hover {
   background: #eee;
   color: #222;
