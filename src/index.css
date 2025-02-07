@@ -16,6 +16,7 @@
 }
 
 body {
+  background-image: url('/images/fondoreact.jpg'); /* Ruta desde public */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -38,26 +39,46 @@ body {
 .board h1 {
   color: #eee;
   margin-bottom: 16px;
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out; 
 }
 
+.board h1:hover {
+  color: #f39c12; 
+  transform: scale(1.1); 
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+
 .board button {
-  padding: 8px 12px;
+  padding: 10px 20px;
   margin: 25px;
   background: transparent;
   border: 2px solid #eee;
   color: #eee;
-  width: 100px;
-  border-radius: 5px;
-  transition: 0.2s;
-  font-weight: bold;
-  cursor: pointer;
+  width: 120px;
+  border-radius: 8px; 
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out; 
 }
-
 
 .board button:hover {
-  background: #eee;
-  color: #222;
+  background: #f39c12; 
+  transform: scale(1.1); 
+  border-color: #f39c12;
 }
+
+.board button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
 
 .board .game {
   display: grid;
