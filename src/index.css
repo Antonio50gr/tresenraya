@@ -59,7 +59,7 @@ body {
   padding: 10px 20px;
   margin: 25px;
   background: transparent;
-  border: 2px solid #eee;
+  border: 4px solid yellow;
   color: #eee;
   width: 120px;
   border-radius: 8px; 
@@ -71,7 +71,7 @@ body {
 .board button:hover {
   background: #f39c12; 
   transform: scale(1.1); 
-  border-color: #f39c12;
+  border-color: yellow;
 }
 
 .board button:focus {
@@ -143,7 +143,7 @@ body {
 .square {
   width: 100px;
   height: 100px;
-  border: 2px solid #eee;
+  border: 4px solid yellow;
   border-radius: 5px;
   display: grid;
   place-items: center;
